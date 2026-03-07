@@ -2,7 +2,7 @@
 
 The hosted service at apexlegendsrecoils.net will be shut down at the end of March 2026.
 
-After multiple years of maintaining this project, I have decided to shut it down - mainly because I don't play Apex Legends anymore and it's just become a burden. I am glad if this little app has helped you to improve your skills and have fun.
+After multiple years of maintaining this project, I have decided to shut it down - mainly because I don't play Apex Legends anymore and it has just become a burden. I am glad if this little app has helped you to improve your skills and have fun.
 
 The source code remains open under the Apache 2.0 license — you are welcome to run it locally - see the [Running the app](#running-the-app) section below. I also welcome you to fork the repo and host it yourself; please keep the license and attribution to this repository.
 
@@ -46,4 +46,4 @@ For development run `npm run dev` and open `http://localhost:3000`. That will wa
 
 Deployment is completely static and assembled with `npm run static`.
 
-Copy files from `./static` to the web server dir, for example by running `scp -r -i id_rsa .\static\* root@1.2.3.4:/var/www/html`.
+Copy files from `./static` to the web server dir, for example by running `scp -r -i id_rsa ./static/* <address>:/var/www/html`.
