@@ -27,7 +27,7 @@ import assertExists from "ts-assert-exists";
 import hotkeys from "hotkeys-js";
 
 let sound: Howl | null = null;
-let pings: Howl[] = [new Howl({ src: `./audio/ping0.wav` }), new Howl({ src: `./audio/ping1.wav`})];
+let pings: Howl[] = [new Howl({ src: `./audio/ping0.wav` }), new Howl({ src: `./audio/ping1.wav` })];
 let soundPath = '';
 const weapons = new Map<string, Weapon>();
 const colorStartCircle = theme.colorStartCircle;
@@ -69,7 +69,6 @@ const aFireSpeed = new NumericAttribute('speed', NS, 100);
 const aMods = new StringAttribute('mods', NS, '');
 const aScaleX = new NumericAttribute('scale-x', NS, 1);
 const aScaleY = new NumericAttribute('scale-y', NS, 1);
-const aShowDevUpdate = new BooleanAttribute('dev-update-2024-1', NS, true);
 
 export interface MagInfo {
   size: number;
@@ -334,7 +333,7 @@ function drawPattern(pattern: Point[], mag: number, start: Point, sc: number) {
 }
 
 function screen(p: Point): Point {
-  return p.clone().sx( aScaleX.get()).sy(aScaleY.get());
+  return p.clone().sx(aScaleX.get()).sy(aScaleY.get());
 }
 
 function scaledPattern(): Point[] {
@@ -805,7 +804,7 @@ class Shooting {
     if (dev) {
       while (this.pingIndex + 1 < this.weapon.ping_points.length &&
         frame_t + pingOffset >= this.weapon.ping_points[this.pingIndex + 1]) {
-          this.pingIndex += 1;
+        this.pingIndex += 1;
         pings[this.pingIndex % 2].play();
       }
     }
@@ -884,29 +883,6 @@ class Shooting {
 }
 let shooting = new Shooting();
 
-function maybeShowDevUpdate() {
-  aShowDevUpdate.watch((v: boolean) => {
-    console.log('dev update', v);
-    const d = document.querySelector(`#notify-splash`) as HTMLDivElement;
-    if (d == null) {
-      console.warn("#notify-splash not found");
-      return;
-    }
-    if (v) {
-      d.classList.remove('hidden');
-    } else {
-      d.classList.add('hidden');
-    }
-  })
-  const b = document.querySelector(`#close-notify-splash`) as HTMLButtonElement;
-  if (b == null) {
-    console.warn("#close-notify-splash not found");
-    return;
-  }
-  b.addEventListener('click', () => {
-    aShowDevUpdate.set(false);
-  })
-}
 
 export function initGame() {
   const version = document.getElementById('version-value');
@@ -923,7 +899,6 @@ export function initGame() {
   instructionsControls();
   weaponControls();
   statControls();
-  maybeShowDevUpdate();
   const urlSearchParams = new URLSearchParams(window.location.search);
   if (urlSearchParams.has('dev')) dev = true;
   {
@@ -944,7 +919,7 @@ export function initGame() {
   //   console.log('scale', aScaleX.get(), aScaleY.get());
   //   layer.scaleX(aScaleX.get());
   //   layer.scaleY(aScaleY.get());
-  //   redraw(); 
+  //   redraw();
   // });
   window.addEventListener('resize', () => {
     redrawStartRectangle();

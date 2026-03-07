@@ -1,3 +1,13 @@
+# Project Discontinued
+
+The hosted service at apexlegendsrecoils.net will be shut down at the end of March 2026.
+
+After multiple years of maintaining this project, I have decided to shut it down - mainly because I don't play Apex Legends anymore and it's just become a burden. I am glad if this little app has helped you to improve your skills and have fun.
+
+The source code remains open under the Apache 2.0 license — you are welcome to run it locally - see the [Running the app](#running-the-app) section below. I also welcome you to fork the repo and host it yourself; please keep the license and attribution to this repository.
+
+---
+
 # About
 
 https://apexlegendsrecoils.net
@@ -30,9 +40,9 @@ Thus multimedia content from [assets](./assets) <ins>is NOT under Apache 2.0 Lic
 
 ## Running the app
 
-For development run `npm run dev` and open `http://localhost:3000`. That will watch for file changes and update the
-content of `./public`. Running `start` by itself will not rebuild
-the bundle.
+You will need to install node.js and npm.
+
+For development run `npm run dev` and open `http://localhost:3000`. That will watch for file changes and update the content of `./public`. Running `start` by itself will not rebuild the bundle.
 
 Deployment is completely static and assembled with `npm run static`.
 
